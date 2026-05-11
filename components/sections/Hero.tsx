@@ -28,7 +28,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0a0a0a]" />
 
-      <div className="relative zo max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,10 @@ export function Hero() {
             получаете ключи.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-e="inline-flex items-center justify-center rounded-full bg-[#D4A843] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] shadow-[0_0_40px_rgba(212,168,67,0.25)] transition hover:bg-[#e0b85a]"
+            <button
+              type="button"
+              onClick={() => scrollTo("calculator")}
+              className="inline-flex items-center justify-center rounded-full bg-[#D4A843] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] shadow-[0_0_40px_rgba(212,168,67,0.25)] transition hover:bg-[#e0b85a]"
             >
               Узнать стоимость
             </button>
