@@ -1,33 +1,47 @@
 "use client";
 
-import Image from "next/image";
 import { FadeSection } from "@/components/FadeSection";
 
-const BRANDS: { name: string; blurb: string }[] = [
-  { name: "BYD", blurb: "Электромобили и гибриды с собственными технологиями" },
-  { name: "Haval", blurb: "Кроссоверы и внедорожники для города и бездорожья" },
-  { name: "Chery", blurb: "Сбалансированные модели по доступной цене" },
-  { name: "Geely", blurb: "Современный дизайн и продуманная эргономика" },
-  { name: "Li Auto", blurb: "Семейные гибриды с запасом хода для дальних поездок" },
-  { name: "Zeekr", blurb: "Премиальный сегмент и высокая динамика" },
-  { name: "Nio", blurb: "Инновации, сервис и быстрая смена аккумуляторов" },
-  { name: "Xiaomi", blurb: "Экосистема умного автомобиля нового поколения" },
-  { name: "Omoda", blurb: "Стильный городской кроссовер из линейки Chery" },
-  { name: "Jaecoo", blurb: "Комфортные SUV с упором на безопасность" },
-];
-
-const TOP_PHOTOS = [
+const BRANDS: { name: string; blurb: string; price: string }[] = [
   {
-    title: "Современный китайский седан",
-    src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
+    name: "BYD",
+    blurb: "Электромобили и гибриды с собственными технологиями",
+    price: "от 3 500 000 ₽",
   },
   {
-    title: "Премиальный седан",
-    src: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80",
+    name: "Haval",
+    blurb: "Кроссоверы и внедорожники для города и бездорожья",
+    price: "от 2 800 000 ₽",
   },
   {
-    title: "Китайский автомобиль в городском стиле",
-    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80",
+    name: "Chery",
+    blurb: "Сбалансированные модели по доступной цене",
+    price: "от 2 200 000 ₽",
+  },
+  {
+    name: "Geely",
+    blurb: "Современный дизайн и продуманная эргономика",
+    price: "от 2 500 000 ₽",
+  },
+  {
+    name: "Li Auto",
+    blurb: "Семейные гибриды с запасом хода для дальних поездок",
+    price: "от 5 500 000 ₽",
+  },
+  {
+    name: "Zeekr",
+    blurb: "Премиальный сегмент и высокая динамика",
+    price: "от 4 800 000 ₽",
+  },
+  {
+    name: "Nio",
+    blurb: "Инновации, сервис и быстрая смена аккумуляторов",
+    price: "от 6 000 000 ₽",
+  },
+  {
+    name: "Xiaomi",
+    blurb: "Экосистема умного автомобиля нового поколения",
+    price: "от 4 200 000 ₽",
   },
 ];
 
@@ -42,33 +56,15 @@ export function Brands() {
           Подберём любую модель из официальных каналов Китая
         </p>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {TOP_PHOTOS.map((photo) => (
-            <div
-              key={photo.title}
-              className="group relative h-[200px] overflow-hidden rounded-xl border border-white/10"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.title}
-                width={600}
-                height={400}
-                unoptimized={false}
-                className="h-[200px] w-full object-cover transition duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/40" />
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {BRANDS.map((b) => (
             <div
               key={b.name}
-              className="group rounded-2xl border border-white/10 bg-[#1A1A1A] p-5 transition duration-300 hover:scale-[1.02] hover:border-[#D4A843]/80 hover:shadow-[0_0_28px_rgba(212,168,67,0.1)]"
+              className="group rounded-3xl border border-white/10 bg-gradient-to-b from-[#1c1c1c] to-[#131313] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#D4A843]/70 hover:shadow-[0_0_36px_rgba(212,168,67,0.15)]"
             >
-              <p className="font-semibold text-lg text-[#D4A843]">{b.name}</p>
-              <p className="mt-2 text-sm leading-snug text-[#A0A0A0]">{b.blurb}</p>
+              <p className="font-semibold text-2xl tracking-tight text-[#D4A843]">{b.name}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[#A0A0A0]">{b.blurb}</p>
+              <p className="mt-6 font-medium text-lg text-white">{b.price}</p>
             </div>
           ))}
         </div>
