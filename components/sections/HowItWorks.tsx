@@ -69,14 +69,17 @@ export function HowItWorks() {
             aria-hidden
           />
 
-          <div className="grid gap-12 lg:grid-cols-4 lg:gap-6">
+          <div className="grid gap-16 lg:grid-cols-4 lg:gap-6">
             {STEPS.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.num} className="relative flex flex-col items-center text-center">
+                <div
+                  key={s.num}
+                  className="relative z-10 flex flex-col items-center text-center"
+                >
                   {i < STEPS.length - 1 && (
                     <div
-                      className="pointer-events-none absolute left-1/2 top-10 h-[calc(100%+3rem)] w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 lg:hidden"
+                      className="pointer-events-none absolute left-1/2 top-10 z-[-1] h-[calc(100%+4rem)] w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 lg:hidden"
                       aria-hidden
                     />
                   )}

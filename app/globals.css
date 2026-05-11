@@ -10,7 +10,8 @@
 
 html {
   scroll-padding-top: 5rem;
-  /* Horizontal clip only — do not set overflow-y: hidden (breaks mobile page scroll) */
+  /* Never use overflow: hidden here — it breaks iOS/Android page scroll */
+  /* Horizontal clip only */
   overflow-x: hidden;
   max-width: 100%;
   -webkit-text-size-adjust: 100%;
@@ -20,6 +21,7 @@ html {
 body {
   color: #ffffff;
   background-color: var(--bg);
+  /* Never use overflow: hidden — use overflow-x only if clipping horizontally */
   overflow-x: hidden;
   max-width: 100%;
   min-height: 100%;

@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] items-center overflow-x-clip overflow-y-visible pt-16"
+      className="relative flex min-h-[100dvh] items-center overflow-x-clip overflow-y-visible pt-20 sm:pt-24"
     >
       {/* Background Image */}
       <div className="pointer-events-none absolute inset-0">
