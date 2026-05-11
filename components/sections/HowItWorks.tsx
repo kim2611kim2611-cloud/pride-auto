@@ -43,7 +43,7 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <FadeSection id="how-it-works" className="relative scroll-mt-24 py-24 sm:py-28">
-      <div className="absolute inset-0">
+      <div className="pointer-events-none absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&q=80"
           alt="Car driving on a dark road"
@@ -51,8 +51,8 @@ export function HowItWorks() {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-[#0a0a0a]" />
+      <div className="pointer-events-none absolute inset-0 bg-black/70" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-[#0a0a0a]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center font-semibold text-3xl tracking-tight text-white sm:text-4xl">
@@ -76,7 +76,7 @@ export function HowItWorks() {
                 <div key={s.num} className="relative flex flex-col items-center text-center">
                   {i < STEPS.length - 1 && (
                     <div
-                      className="absolute left-1/2 top-10 h-[calc(100%+3rem)] w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 lg:hidden"
+                      className="pointer-events-none absolute left-1/2 top-10 h-[calc(100%+3rem)] w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 lg:hidden"
                       aria-hidden
                     />
                   )}

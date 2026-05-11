@@ -10,11 +10,21 @@
 
 html {
   scroll-padding-top: 5rem;
+  /* Horizontal clip only — do not set overflow-y: hidden (breaks mobile page scroll) */
+  overflow-x: hidden;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   color: #ffffff;
   background-color: var(--bg);
+  overflow-x: hidden;
+  max-width: 100%;
+  min-height: 100%;
+  /* Momentum scrolling on older iOS WebKit */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Subtle geometric grid + vignette */

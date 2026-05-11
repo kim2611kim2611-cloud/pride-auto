@@ -11,10 +11,10 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-16"
+      className="relative flex min-h-[100dvh] items-center overflow-x-clip overflow-y-visible pt-16"
     >
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="pointer-events-none absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80"
           alt="Premium car"
@@ -25,8 +25,8 @@ export function Hero() {
       </div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0a0a0a]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0a0a0a]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <motion.div

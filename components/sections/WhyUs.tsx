@@ -30,7 +30,7 @@ const CARDS = [
 export function WhyUs() {
   return (
     <FadeSection id="advantages" className="relative scroll-mt-24 py-24 sm:py-28">
-      <div className="absolute inset-0">
+      <div className="pointer-events-none absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80"
           alt="Luxury car in dark setting"
@@ -38,8 +38,8 @@ export function WhyUs() {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-black/75" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/65 to-[#0a0a0a]" />
+      <div className="pointer-events-none absolute inset-0 bg-black/75" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-black/65 to-[#0a0a0a]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center font-semibold text-3xl tracking-tight text-white sm:text-4xl">

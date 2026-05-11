@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-white`}
+        className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-white touch-manipulation`}
       >
         <div className="geo-pattern" aria-hidden />
         <div className="relative z-10">{children}</div>
