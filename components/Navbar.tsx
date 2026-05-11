@@ -77,9 +77,9 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="Pride Auto"
-              width={200}
-              height={70}
-              className="object-contain brightness-0 invert mix-blend-lighten"
+              width={120}
+              height={45}
+              className="object-contain object-top brightness-0 invert mix-blend-lighten"
             />
           </motion.div>
         </Link>
