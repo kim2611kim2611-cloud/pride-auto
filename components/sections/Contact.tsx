@@ -93,28 +93,26 @@ export function Contact() {
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-[#A0A0A0]">
               <a
-                href="https://t.me/prideauto"
+                href="https://wa.me/821021750107"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition hover:text-[#D4A843]"
+              >
+                <Phone className="h-5 w-5 text-[#D4A843]" />
+                Телефон / WhatsApp: +82 10 2175 0107
+              </a>
+              <a
+                href="https://t.me/gi_bok"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition hover:text-[#D4A843]"
               >
                 <MessageCircle className="h-5 w-5 text-[#D4A843]" />
-                Telegram: @prideauto
+                Telegram: @gi_bok
               </a>
-              <a
-                href="https://wa.me/79990000000"
-                className="inline-flex items-center gap-2 transition hover:text-[#D4A843]"
-              >
-                <Phone className="h-5 w-5 text-[#D4A843]" />
-                WhatsApp: +7 (999) 000-00-00
-              </a>
-              <a
-                href="tel:+79990000000"
-                className="inline-flex items-center gap-2 transition hover:text-[#D4A843]"
-              >
-                <Phone className="h-5 w-5 text-[#D4A843]" />
-                Телефон: +7 (999) 000-00-00
-              </a>
+              <span className="inline-flex items-center gap-2">
+                🌍 Работаем по всей России
+              </span>
             </div>
           </div>
         </div>

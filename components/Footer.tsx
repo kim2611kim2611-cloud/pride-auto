@@ -33,7 +33,7 @@ export function Footer() {
           </nav>
           <div className="flex items-center gap-4 md:justify-end">
             <a
-              href="https://t.me/prideauto"
+              href="https://t.me/gi_bok"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[#D4A843] transition hover:border-[#D4A843]/60 hover:bg-white/5"
@@ -42,7 +42,7 @@ export function Footer() {
               <MessageCircle className="h-5 w-5" />
             </a>
             <a
-              href="https://wa.me/79990000000"
+              href="https://wa.me/821021750107"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[#D4A843] transition hover:border-[#D4A843]/60 hover:bg-white/5"
@@ -51,6 +51,31 @@ export function Footer() {
               <Phone className="h-5 w-5" />
             </a>
           </div>
+        </div>
+        <div className="mt-8 rounded-2xl border border-white/10 bg-[#101010] p-4 text-sm text-[#A0A0A0] md:flex md:items-center md:justify-between">
+          <p>
+            📞 Телефон / WhatsApp:{" "}
+            <a
+              href="https://wa.me/821021750107"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white transition hover:text-[#D4A843]"
+            >
+              +82 10 2175 0107
+            </a>
+          </p>
+          <p>
+            💬 Telegram:{" "}
+            <a
+              href="https://t.me/gi_bok"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white transition hover:text-[#D4A843]"
+            >
+              @gi_bok
+            </a>
+          </p>
+          <p>🌍 Работаем по всей России</p>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-[#6b6b6b]">
