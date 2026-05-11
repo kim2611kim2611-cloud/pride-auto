@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Hero() {
   const scrollTo = (id: string) => {
@@ -12,10 +13,22 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-[100dvh] items-center overflow-hidden pt-16"
     >
-      <div className="hero-gradient absolute inset-0" aria-hidden />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0a0a0a]/70 to-[#0a0a0a]" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80"
+          alt="Premium car"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0a0a0a]" />
+
+      <div className="relative zo max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,10 +46,7 @@ export function Hero() {
             получаете ключи.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <button
-              type="button"
-              onClick={() => scrollTo("calculator")}
-              className="inline-flex items-center justify-center rounded-full bg-[#D4A843] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] shadow-[0_0_40px_rgba(212,168,67,0.25)] transition hover:bg-[#e0b85a]"
+e="inline-flex items-center justify-center rounded-full bg-[#D4A843] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] shadow-[0_0_40px_rgba(212,168,67,0.25)] transition hover:bg-[#e0b85a]"
             >
               Узнать стоимость
             </button>
