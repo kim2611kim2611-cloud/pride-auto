@@ -10,10 +10,33 @@ export function Contact() {
   const [contact, setContact] = useState("");
   const [car, setCar] = useState("");
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact, car }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (!res.ok || !data.ok) {
+        setError(data.error ?? "Не удалось отправить. Попробуйте позже.");
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError("Ошибка сети. Проверьте подключение и попробуйте снова.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -72,11 +95,17 @@ export function Contact() {
                     className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-[#0A0A0A] px-4 py-3 text-white outline-none focus:border-[#D4A843]/50 focus:ring-2 focus:ring-[#D4A843]/30"
                   />
                 </label>
+                {error && (
+                  <p className="mt-4 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="mt-8 w-full rounded-full bg-[#D4A843] py-3.5 text-base font-semibold text-[#0A0A0A] transition hover:bg-[#e0b85a]"
+                  disabled={submitting}
+                  className="mt-8 w-full rounded-full bg-[#D4A843] py-3.5 text-base font-semibold text-[#0A0A0A] transition hover:bg-[#e0b85a] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Отправить заявку
+                  {submitting ? "Отправка…" : "Отправить заявку"}
                 </button>
               </form>
             ) : (
