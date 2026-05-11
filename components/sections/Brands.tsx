@@ -2,46 +2,54 @@
 
 import { FadeSection } from "@/components/FadeSection";
 
-const BRANDS: { name: string; blurb: string; price: string }[] = [
+const BRANDS: { name: string; blurb: string; price: string; model: string }[] = [
   {
     name: "BYD",
     blurb: "Электромобили и гибриды с собственными технологиями",
-    price: "от 3 500 000 ₽",
+    price: "от 1 500 000 ₽",
+    model: "BYD Seagull",
   },
   {
     name: "Haval",
     blurb: "Кроссоверы и внедорожники для города и бездорожья",
-    price: "от 2 800 000 ₽",
+    price: "от 1 900 000 ₽",
+    model: "Haval Jolion",
   },
   {
     name: "Chery",
     blurb: "Сбалансированные модели по доступной цене",
-    price: "от 2 200 000 ₽",
+    price: "от 1 800 000 ₽",
+    model: "Chery Tiggo 4 Pro",
   },
   {
     name: "Geely",
     blurb: "Современный дизайн и продуманная эргономика",
-    price: "от 2 500 000 ₽",
+    price: "от 2 000 000 ₽",
+    model: "Geely Coolray",
   },
   {
     name: "Li Auto",
     blurb: "Семейные гибриды с запасом хода для дальних поездок",
-    price: "от 5 500 000 ₽",
+    price: "от 5 700 000 ₽",
+    model: "Li Auto L6",
   },
   {
     name: "Zeekr",
     blurb: "Премиальный сегмент и высокая динамика",
-    price: "от 4 800 000 ₽",
+    price: "от 3 700 000 ₽",
+    model: "Zeekr X",
   },
   {
     name: "Nio",
     blurb: "Инновации, сервис и быстрая смена аккумуляторов",
-    price: "от 6 000 000 ₽",
+    price: "от 4 500 000 ₽",
+    model: "Nio ET5",
   },
   {
     name: "Xiaomi",
     blurb: "Экосистема умного автомобиля нового поколения",
-    price: "от 4 200 000 ₽",
+    price: "от 5 000 000 ₽",
+    model: "Xiaomi SU7",
   },
 ];
 
@@ -64,7 +72,10 @@ export function Brands() {
             >
               <p className="font-semibold text-2xl tracking-tight text-[#D4A843]">{b.name}</p>
               <p className="mt-3 text-sm leading-relaxed text-[#A0A0A0]">{b.blurb}</p>
-              <p className="mt-6 font-medium text-lg text-white">{b.price}</p>
+              <div className="mt-6">
+                <p className="font-medium text-lg text-white">{b.price}</p>
+                <p className="mt-1 text-xs text-[#A0A0A0]">{b.model}</p>
+              </div>
             </div>
           ))}
         </div>
