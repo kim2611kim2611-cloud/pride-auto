@@ -4,12 +4,30 @@ import Image from "next/image";
 import { FadeSection } from "@/components/FadeSection";
 
 const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
-  "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80",
-  "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80",
-  "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
-  "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80",
+  {
+    model: "BYD Han",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g31/M04/F0/D8/autohomecar__ChxoHmhbpoWAT-1QACy7eE4KXEQ887.jpg",
+  },
+  {
+    model: "Haval H6",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g32/M06/3E/05/autohomecar__ChxkPWhdABaAbApEACCJTba-wqQ053.jpg",
+  },
+  {
+    model: "Chery Tiggo 8",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g30/M06/82/46/autohomecar__ChxknGhic-qAfY4-AAnQmXYqRaQ385.jpg",
+  },
+  {
+    model: "Geely Monjaro",
+    src: "https://img3.autoimg.cn/aimediahubdfs/g34/M0A/3A/9F/ChxpV2jNC0qAHI3PAACtgZoCArk311.jpg",
+  },
+  {
+    model: "Li Auto L7",
+    src: "https://img2.autoimg.cn/aimediahubdfs/g32/M00/AC/14/ChxkPmbOzPeAb-k6AACJ5g05HY8902.jpg",
+  },
+  {
+    model: "Zeekr 001",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g28/M04/57/51/autohomecar__CjIFVGhhJrqAY1AoABwk2M2I4Xg937.jpg",
+  },
 ];
 
 export function Gallery() {
@@ -20,11 +38,11 @@ export function Gallery() {
           Автомобили которые мы привозим
         </h2>
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
-          {GALLERY_IMAGES.map((src) => (
-            <div key={src} className="group relative h-64 overflow-hidden rounded-xl">
+          {GALLERY_IMAGES.map((item) => (
+            <div key={item.model} className="group relative h-64 overflow-hidden rounded-xl">
               <Image
-                src={src}
-                alt="Imported car"
+                src={item.src}
+                alt={item.model}
                 fill
                 className="object-cover transition duration-300 group-hover:scale-105"
               />

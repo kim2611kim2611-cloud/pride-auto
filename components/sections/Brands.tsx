@@ -18,16 +18,16 @@ const BRANDS: { name: string; blurb: string }[] = [
 
 const TOP_PHOTOS = [
   {
-    title: "BYD",
-    src: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=600&q=80",
+    title: "BYD Han",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g31/M04/F0/D8/autohomecar__ChxoHmhbpoWAT-1QACy7eE4KXEQ887.jpg",
   },
   {
-    title: "Modern sedan",
-    src: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80",
+    title: "Haval H6",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g32/M06/3E/05/autohomecar__ChxkPWhdABaAbApEACCJTba-wqQ053.jpg",
   },
   {
-    title: "SUV",
-    src: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80",
+    title: "Chery Tiggo 8",
+    src: "https://global2.autoimg.cn/globalcardfs/product/g30/M06/82/46/autohomecar__ChxknGhic-qAfY4-AAnQmXYqRaQ385.jpg",
   },
 ];
 
