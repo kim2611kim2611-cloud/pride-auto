@@ -12,28 +12,24 @@ import { FadeSection } from "@/components/FadeSection";
 const STEPS = [
   {
     num: "01",
-    emoji: "🔍",
     icon: Search,
     title: "Вы выбираете авто",
     desc: "Говорите марку, модель, цвет и комплектацию",
   },
   {
     num: "02",
-    emoji: "🤝",
     icon: Globe2,
     title: "Мы находим в Китае",
     desc: "Связываемся с поставщиком, проверяем авто, согласовываем цену",
   },
   {
     num: "03",
-    emoji: "🚢",
     icon: Ship,
     title: "Доставка и таможня",
     desc: "Организуем доставку, берём на себя все документы и таможенное оформление",
   },
   {
     num: "04",
-    emoji: "🚗",
     icon: Car,
     title: "Вы получаете авто",
     desc: "Машина приезжает с российскими документами, готовая к постановке на учёт",
@@ -69,34 +65,33 @@ export function HowItWorks() {
             aria-hidden
           />
 
-          <div className="grid gap-16 lg:grid-cols-4 lg:gap-6">
+          <div className="grid gap-0 lg:grid-cols-4 lg:gap-6">
             {STEPS.map((s, i) => {
               const Icon = s.icon;
               return (
                 <div
                   key={s.num}
-                  className="relative z-10 flex flex-col items-center text-center"
+                  className="relative z-10 mb-16 flex flex-col items-center text-center last:mb-0 lg:mb-0"
                 >
                   {i < STEPS.length - 1 && (
                     <div
-                      className="pointer-events-none absolute left-1/2 top-10 z-[-1] h-[calc(100%+4rem)] w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 lg:hidden"
+                      className="pointer-events-none absolute left-1/2 top-10 z-0 w-0 -translate-x-1/2 border-l-2 border-dashed border-[#D4A843]/45 bottom-[-4rem] lg:hidden"
                       aria-hidden
                     />
                   )}
-                  <div className="relative z-10 flex flex-col items-center">
-                    <span className="font-medium text-sm tracking-widest text-[#D4A843]">
-                      {s.num}
-                    </span>
-                    <div className="mt-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4A843]/25 bg-[#1A1A1A] shadow-[0_0_30px_rgba(212,168,67,0.08)]">
-                      <Icon className="h-7 w-7 text-[#D4A843]" strokeWidth={1.5} />
+                  <div className="relative z-10 w-full max-w-sm rounded-2xl border border-[#D4A843]/20 bg-[#1A1A1A] px-5 py-6 shadow-[0_0_30px_rgba(0,0,0,0.35)]">
+                    <div className="flex flex-col items-center">
+                      <span className="font-medium text-sm tracking-widest text-[#D4A843]">
+                        {s.num}
+                      </span>
+                      <div className="mt-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4A843]/25 bg-[#141414] shadow-[0_0_30px_rgba(212,168,67,0.08)]">
+                        <Icon className="h-7 w-7 text-[#D4A843]" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="mt-4 font-semibold text-lg text-white">{s.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[#A0A0A0]">
+                        {s.desc}
+                      </p>
                     </div>
-                    <span className="mt-3 text-2xl" aria-hidden>
-                      {s.emoji}
-                    </span>
-                    <h3 className="mt-2 font-semibold text-lg text-white">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#A0A0A0]">
-                      {s.desc}
-                    </p>
                   </div>
                 </div>
               );
