@@ -18,15 +18,31 @@ export function Contact() {
     setError(null);
     setSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
+      const endpoint = `${window.location.origin}/api/contact`;
+      const res = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({ name, contact, car }),
+        cache: "no-store",
       });
-      const data = (await res.json().catch(() => ({}))) as {
-        ok?: boolean;
-        error?: string;
-      };
+
+      const contentType = res.headers.get("content-type") ?? "";
+      let data: { ok?: boolean; error?: string } = {};
+
+      if (contentType.includes("application/json")) {
+        data = (await res.json()) as { ok?: boolean; error?: string };
+      } else {
+        const snippet = (await res.text()).slice(0, 120);
+        console.error("/api/contact: expected JSON, got", res.status, snippet);
+        setError(
+          `Сервер вернул ответ ${res.status} (не JSON). Проверьте, что маршрут /api/contact задеплоен.`
+        );
+        return;
+      }
+
       if (!res.ok || !data.ok) {
         setError(data.error ?? "Не удалось отправить. Попробуйте позже.");
         return;
