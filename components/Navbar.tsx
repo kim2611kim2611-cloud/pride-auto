@@ -72,14 +72,14 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.7 }}
-            className="flex items-center"
+            className="flex items-center bg-transparent"
           >
             <Image
               src="/logo.png"
               alt="Pride Auto"
-              width={160}
-              height={60}
-              className="object-contain"
+              width={200}
+              height={70}
+              className="object-contain brightness-0 invert mix-blend-lighten"
             />
           </motion.div>
         </Link>
