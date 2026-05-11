@@ -5,6 +5,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
@@ -67,14 +68,20 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
         <Link href="#hero" className="group flex items-center gap-2">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.7 }}
-            className="font-semibold tracking-tight text-xl text-[#D4A843] sm:text-2xl"
+            className="flex items-center"
           >
-            Pride Auto
-          </motion.span>
+            <Image
+              src="/logo.png"
+              alt="Pride Auto"
+              width={160}
+              height={60}
+              className="object-contain"
+            />
+          </motion.div>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
