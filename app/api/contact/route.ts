@@ -24,9 +24,11 @@ export async function POST(req: Request) {
     }
 
     const token = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    /** Group / channel ID (negative for supergroups). Override via TELEGRAM_CHAT_ID. */
+    const chatId =
+      process.env.TELEGRAM_CHAT_ID?.trim() || "-1003837777269";
 
-    if (!token || !chatId) {
+    if (!token) {
       return NextResponse.json(
         { ok: false, error: "Сервер не настроен" },
         { status: 500 }
