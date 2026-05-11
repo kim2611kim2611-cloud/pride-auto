@@ -18,16 +18,16 @@ const BRANDS: { name: string; blurb: string }[] = [
 
 const TOP_PHOTOS = [
   {
-    title: "BYD Han",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g31/M04/F0/D8/autohomecar__ChxoHmhbpoWAT-1QACy7eE4KXEQ887.jpg",
+    title: "Современный китайский седан",
+    src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80",
   },
   {
-    title: "Haval H6",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g32/M06/3E/05/autohomecar__ChxkPWhdABaAbApEACCJTba-wqQ053.jpg",
+    title: "Премиальный седан",
+    src: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80",
   },
   {
-    title: "Chery Tiggo 8",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g30/M06/82/46/autohomecar__ChxknGhic-qAfY4-AAnQmXYqRaQ385.jpg",
+    title: "Китайский автомобиль в городском стиле",
+    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80",
   },
 ];
 
@@ -51,8 +51,10 @@ export function Brands() {
               <Image
                 src={photo.src}
                 alt={photo.title}
-                fill
-                className="object-cover transition duration-300 group-hover:scale-105"
+                width={600}
+                height={400}
+                unoptimized={false}
+                className="h-[200px] w-full object-cover transition duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/40" />
             </div>

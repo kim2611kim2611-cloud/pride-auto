@@ -5,28 +5,28 @@ import { FadeSection } from "@/components/FadeSection";
 
 const GALLERY_IMAGES = [
   {
-    model: "BYD Han",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g31/M04/F0/D8/autohomecar__ChxoHmhbpoWAT-1QACy7eE4KXEQ887.jpg",
+    model: "Современный китайский седан",
+    src: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
   },
   {
-    model: "Haval H6",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g32/M06/3E/05/autohomecar__ChxkPWhdABaAbApEACCJTba-wqQ053.jpg",
+    model: "Премиальный электроседан",
+    src: "https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?w=800&q=80",
   },
   {
-    model: "Chery Tiggo 8",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g30/M06/82/46/autohomecar__ChxknGhic-qAfY4-AAnQmXYqRaQ385.jpg",
+    model: "Современный китайский кроссовер",
+    src: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
   },
   {
-    model: "Geely Monjaro",
-    src: "https://img3.autoimg.cn/aimediahubdfs/g34/M0A/3A/9F/ChxpV2jNC0qAHI3PAACtgZoCArk311.jpg",
+    model: "Спортивный люкс-седан",
+    src: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
   },
   {
-    model: "Li Auto L7",
-    src: "https://img2.autoimg.cn/aimediahubdfs/g32/M00/AC/14/ChxkPmbOzPeAb-k6AACJ5g05HY8902.jpg",
+    model: "Китайский SUV",
+    src: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
   },
   {
-    model: "Zeekr 001",
-    src: "https://global2.autoimg.cn/globalcardfs/product/g28/M04/57/51/autohomecar__CjIFVGhhJrqAY1AoABwk2M2I4Xg937.jpg",
+    model: "Электромобиль в современном стиле",
+    src: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80",
   },
 ];
 
@@ -43,8 +43,10 @@ export function Gallery() {
               <Image
                 src={item.src}
                 alt={item.model}
-                fill
-                className="object-cover transition duration-300 group-hover:scale-105"
+                width={800}
+                height={533}
+                unoptimized={false}
+                className="h-64 w-full object-cover transition duration-300 group-hover:scale-105"
               />
             </div>
           ))}
