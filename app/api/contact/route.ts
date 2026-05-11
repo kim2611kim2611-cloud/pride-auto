@@ -23,7 +23,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const token =
+      process.env.TELEGRAM_BOT_TOKEN ||
+      "8722804600:AAHhlEyjsVtn0IR9TFFpFBkrW9PxQZAdQWg";
     /** Group / channel ID (negative for supergroups). Override via TELEGRAM_CHAT_ID. */
     const chatId =
       process.env.TELEGRAM_CHAT_ID?.trim() || "-1003837777269";
