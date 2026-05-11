@@ -8,10 +8,49 @@ export function Calculator() {
   const [contact, setContact] = useState("");
   const [car, setCar] = useState("");
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setError(null);
+    setSubmitting(true);
+    try {
+      const endpoint = `${window.location.origin}/api/contact`;
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ name, contact, car }),
+        cache: "no-store",
+      });
+
+      const contentType = res.headers.get("content-type") ?? "";
+      let data: { ok?: boolean; error?: string } = {};
+
+      if (contentType.includes("application/json")) {
+        data = (await res.json()) as { ok?: boolean; error?: string };
+      } else {
+        const snippet = (await res.text()).slice(0, 120);
+        console.error("/api/contact: expected JSON, got", res.status, snippet);
+        setError(
+          `Сервер вернул ответ ${res.status} (не JSON). Проверьте, что маршрут /api/contact задеплоен.`
+        );
+        return;
+      }
+
+      if (!res.ok || !data.ok) {
+        setError(data.error ?? "Не удалось отправить. Попробуйте позже.");
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError("Ошибка сети. Проверьте подключение и попробуйте снова.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -63,11 +102,17 @@ export function Calculator() {
                     className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-[#0A0A0A] px-4 py-3 text-white outline-none transition focus:border-[#D4A843]/50 focus:ring-2 focus:ring-[#D4A843]/30"
                   />
                 </label>
+                {error && (
+                  <p className="mt-4 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="mt-8 w-full rounded-full bg-[#D4A843] py-3.5 text-base font-semibold text-[#0A0A0A] transition hover:bg-[#e0b85a]"
+                  disabled={submitting}
+                  className="mt-8 w-full rounded-full bg-[#D4A843] py-3.5 text-base font-semibold text-[#0A0A0A] transition hover:bg-[#e0b85a] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Получить расчёт
+                  {submitting ? "Отправка…" : "Получить расчёт"}
                 </button>
               </form>
             ) : (
