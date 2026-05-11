@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { FadeSection } from "@/components/FadeSection";
+import { submitContactLead } from "@/lib/submitContactLead";
 
 export function Contact() {
   const [name, setName] = useState("");
@@ -18,38 +19,9 @@ export function Contact() {
     setError(null);
     setSubmitting(true);
     try {
-      const endpoint = `${window.location.origin}/api/contact`;
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ name, contact, car }),
-        cache: "no-store",
-      });
-
-      const contentType = res.headers.get("content-type") ?? "";
-      let data: { ok?: boolean; error?: string } = {};
-
-      if (contentType.includes("application/json")) {
-        data = (await res.json()) as { ok?: boolean; error?: string };
-      } else {
-        const snippet = (await res.text()).slice(0, 120);
-        console.error("/api/contact: expected JSON, got", res.status, snippet);
-        setError(
-          `Сервер вернул ответ ${res.status} (не JSON). Проверьте, что маршрут /api/contact задеплоен.`
-        );
-        return;
-      }
-
-      if (!res.ok || !data.ok) {
-        setError(data.error ?? "Не удалось отправить. Попробуйте позже.");
-        return;
-      }
-      setSent(true);
-    } catch {
-      setError("Ошибка сети. Проверьте подключение и попробуйте снова.");
+      const result = await submitContactLead({ name, contact, car });
+      if (result.ok) setSent(true);
+      else setError(result.error);
     } finally {
       setSubmitting(false);
     }
@@ -58,10 +30,10 @@ export function Contact() {
   return (
     <FadeSection id="contact" className="scroll-mt-24">
       <div className="relative overflow-hidden border-t border-[#D4A843]/20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D4A843]/15 via-transparent to-[#0a0a0a]" />
-        <div className="absolute inset-0 bg-[#0A0A0A]/80" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#D4A843]/15 via-transparent to-[#0a0a0a]" />
+        <div className="pointer-events-none absolute inset-0 bg-[#0A0A0A]/80" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="font-semibold text-3xl tracking-tight text-white sm:text-4xl">
               Готовы найти ваш автомобиль?
