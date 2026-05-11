@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Brands } from "@/components/sections/Brands";
+import { Gallery } from "@/components/sections/Gallery";
 import { Calculator } from "@/components/sections/Calculator";
 import { Timeline } from "@/components/sections/Timeline";
 import { FAQ } from "@/components/sections/FAQ";
@@ -18,6 +19,7 @@ export default function Home() {
         <HowItWorks />
         <WhyUs />
         <Brands />
+        <Gallery />
         <Calculator />
         <Timeline />
         <FAQ />

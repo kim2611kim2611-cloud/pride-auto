@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FadeSection } from "@/components/FadeSection";
 
 const BRANDS: { name: string; blurb: string }[] = [
@@ -15,6 +16,21 @@ const BRANDS: { name: string; blurb: string }[] = [
   { name: "Jaecoo", blurb: "Комфортные SUV с упором на безопасность" },
 ];
 
+const TOP_PHOTOS = [
+  {
+    title: "BYD",
+    src: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=600&q=80",
+  },
+  {
+    title: "Modern sedan",
+    src: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80",
+  },
+  {
+    title: "SUV",
+    src: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80",
+  },
+];
+
 export function Brands() {
   return (
     <FadeSection id="brands" className="scroll-mt-24 py-24 sm:py-28">
@@ -25,6 +41,23 @@ export function Brands() {
         <p className="mx-auto mt-4 max-w-2xl text-center text-[#A0A0A0]">
           Подберём любую модель из официальных каналов Китая
         </p>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {TOP_PHOTOS.map((photo) => (
+            <div
+              key={photo.title}
+              className="group relative h-[200px] overflow-hidden rounded-xl border border-white/10"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.title}
+                fill
+                className="object-cover transition duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/40" />
+            </div>
+          ))}
+        </div>
 
         <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {BRANDS.map((b) => (
