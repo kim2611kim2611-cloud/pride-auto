@@ -27,8 +27,10 @@ export async function POST(req: Request) {
       process.env.TELEGRAM_BOT_TOKEN ||
       "8722804600:AAHhlEyjsVtn0IR9TFFpFBkrW9PxQZAdQWg";
     /** Group / channel ID (negative for supergroups). Override via TELEGRAM_CHAT_ID. */
-    const chatId =
-      process.env.TELEGRAM_CHAT_ID?.trim() || "-1003837777269";
+    const chatId = process.env.TELEGRAM_CHAT_ID?.trim() || "-1003837777269";
+
+    console.log("Sending to chat_id:", chatId);
+    console.log("Token exists:", !!token);
 
     if (!token) {
       return NextResponse.json(
